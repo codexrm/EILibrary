@@ -1,5 +1,7 @@
 package io.github.codexrm.EILibrary.model;
 
+import io.github.codexrm.EILibrary.enums.Months;
+
 public class BookLetReference extends Reference {
 
     private String author;
@@ -9,8 +11,8 @@ public class BookLetReference extends Reference {
     public BookLetReference() {
     }
 
-    public BookLetReference(String title, String year, String month, String note, String author, String howpublished, String address) {
-        super(title, year, month, note);
+    public BookLetReference(String title, String year, Months month, String note, Integer id, String author, String howpublished, String address) {
+        super(title, year, month, note, id);
         this.author = author;
         this.howpublished = howpublished;
         this.address = address;

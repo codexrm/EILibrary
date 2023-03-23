@@ -1,5 +1,7 @@
 package io.github.codexrm.EILibrary.model;
 
+import io.github.codexrm.EILibrary.enums.Months;
+
 public class ArticleReference extends Reference {
 
     private String author;
@@ -12,8 +14,8 @@ public class ArticleReference extends Reference {
     public ArticleReference() {
     }
 
-    public ArticleReference(String title, String year, String month, String note, String author, String journal, String volume, String number, String pages, String issn) {
-        super(title, year, month, note);
+    public ArticleReference(String title, String year, Months month, String note, Integer id, String author, String journal, String volume, String number, String pages, String issn) {
+        super(title, year, month, note, id);
         this.author = author;
         this.journal = journal;
         this.volume = volume;

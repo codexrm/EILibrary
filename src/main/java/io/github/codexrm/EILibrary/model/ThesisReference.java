@@ -1,17 +1,20 @@
 package io.github.codexrm.EILibrary.model;
 
+import io.github.codexrm.EILibrary.enums.Months;
+import io.github.codexrm.EILibrary.enums.ThesisType;
+
 public class ThesisReference extends Reference {
 
     private String author;
     private String school;
-    private String type;
+    private ThesisType type;
     private String address;
 
     public ThesisReference() {
     }
 
-    public ThesisReference(String title, String year, String month, String note, String author, String school, String type, String address) {
-        super(title, year, month, note);
+    public ThesisReference(String title, String year, Months month, String note, Integer id, String author, String school, ThesisType type, String address) {
+        super(title, year, month, note, id);
         this.author = author;
         this.school = school;
         this.type = type;
@@ -26,9 +29,9 @@ public class ThesisReference extends Reference {
 
     public void setSchool(String school) { this.school = school; }
 
-    public String getType() { return type; }
+    public ThesisType getType() { return type; }
 
-    public void setType(String type) { this.type = type; }
+    public void setType(ThesisType type) { this.type = type; }
 
     public String getAddress() { return address; }
 

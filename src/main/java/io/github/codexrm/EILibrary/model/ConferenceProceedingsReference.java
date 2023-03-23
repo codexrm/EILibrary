@@ -1,5 +1,7 @@
 package io.github.codexrm.EILibrary.model;
 
+import io.github.codexrm.EILibrary.enums.Months;
+
 public class ConferenceProceedingsReference extends Reference {
 
     private String editor;
@@ -14,8 +16,8 @@ public class ConferenceProceedingsReference extends Reference {
     public ConferenceProceedingsReference() {
     }
 
-    public ConferenceProceedingsReference(String title, String year, String month, String note, String editor, String volume, String number, String series, String address, String publisher, String organization, String isbn) {
-        super(title, year, month, note);
+    public ConferenceProceedingsReference(String title, String year, Months month, String note, Integer id, String editor, String volume, String number, String series, String address, String publisher, String organization, String isbn) {
+        super(title, year, month, note, id);
         this.editor = editor;
         this.volume = volume;
         this.number = number;
