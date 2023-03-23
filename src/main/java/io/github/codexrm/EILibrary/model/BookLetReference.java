@@ -7,6 +7,7 @@ public class BookLetReference extends Reference {
     private String author;
     private String howpublished;
     private String address;
+    private final Validations validations = new Validations();
 
     public BookLetReference() {
     }
@@ -20,7 +21,10 @@ public class BookLetReference extends Reference {
 
     public String getAuthor() { return author; }
 
-    public void setAuthor(String author) { this.author = author; }
+    public void setAuthor(String author) {
+        if(validations.validateAuthorOrEditor(author))
+        this.author = author;
+    }
 
     public String getHowpublished() { return howpublished; }
 
@@ -28,5 +32,8 @@ public class BookLetReference extends Reference {
 
     public String getAddress() { return address; }
 
-    public void setAddress(String address) { this.address = address; }
+    public void setAddress(String address) {
+        if(validations.validateAddress(address))
+        this.address = address;
+    }
 }

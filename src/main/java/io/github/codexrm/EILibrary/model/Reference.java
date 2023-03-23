@@ -26,7 +26,10 @@ public class Reference {
 
     public String getYear() { return year; }
 
-    public void setYear(String year) { this.year = year; }
+    public void setYear(String year) {
+        Validations validations = new Validations();
+        this.year = validations.validateYear(year);
+    }
 
     public Months getMonth() { return month; }
 
@@ -39,4 +42,5 @@ public class Reference {
     public Integer getId() { return id; }
 
     public void setId(Integer id) { this.id = id; }
+
 }

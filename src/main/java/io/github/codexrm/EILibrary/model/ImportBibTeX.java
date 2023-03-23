@@ -176,6 +176,27 @@ public class ImportBibTeX implements Import {
             return false;
         }
     }
+    private void setBookSectionType(final BibTeXEntry entry, BookSectionReference bookSection) {
+
+        switch (entry.getType().getValue()) {
+            case "Master´s thesis":
+                bookSection.setType(BookSectionType.MATHESIS);
+            case "PhD thesis":
+                bookSection.setType(BookSectionType.PHDTHESIS);
+            case "Candidate thesis":
+                bookSection.setType(BookSectionType.CANDTHESIS);
+            case "Technical report":
+                bookSection.setType(BookSectionType.TECHREPORT);
+            case "Research report":
+                bookSection.setType(BookSectionType.RESREPORT);
+            case "Software":
+                bookSection.setType(BookSectionType.SOFTWARE);
+            case "Audio CD":
+                bookSection.setType(BookSectionType.AUDIOCD);
+            case "Data CD":
+                bookSection.setType(BookSectionType.DataCD);
+        }
+    }
 
     private Reference createArticleReference(BibTeXEntry entry) {
         ArticleReference article = new ArticleReference();
@@ -259,10 +280,8 @@ public class ImportBibTeX implements Import {
         if (value != null) {
             bookSection.setPages(value.toUserString());
         }
-        value = entry.getField(BibTeXEntry.KEY_TYPE);
-        if (value != null) {
-            bookSection.setType(value.toUserString());
-        }
+        setBookSectionType(entry, bookSection);
+
         return bookSection;
     }
 

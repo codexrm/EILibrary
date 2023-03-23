@@ -10,6 +10,7 @@ public class ArticleReference extends Reference {
     private String number;
     private String pages;
     private String issn;
+    private final Validations validations = new Validations();
 
     public ArticleReference() {
     }
@@ -26,25 +27,43 @@ public class ArticleReference extends Reference {
 
     public String getAuthor() { return author; }
 
-    public void setAuthor(String author) { this.author = author; }
+    public void setAuthor(String author) {
+        if(validations.validateAuthorOrEditor(author))
+        this.author = author;
+    }
 
     public String getJournal() { return journal; }
 
-    public void setJournal(String journal) { this.journal = journal; }
+    public void setJournal(String journal) {
+        if(validations.validateJournal(journal))
+        this.journal = journal;
+    }
 
     public String getVolume() { return volume; }
 
-    public void setVolume(String volume) { this.volume = volume; }
+    public void setVolume(String volume) {
+        if(validations.isNumber(volume))
+        this.volume = volume;
+    }
 
     public String getNumber() { return number; }
 
-    public void setNumber(String number) { this.number = number; }
+    public void setNumber(String number) {
+        if(validations.validateNumber(number))
+        this.number = number;
+    }
 
     public String getPages() { return pages; }
 
-    public void setPages(String pages) { this.pages = pages; }
+    public void setPages(String pages) {
+        if(validations.validatePages(pages))
+        this.pages = pages;
+    }
 
     public String getIssn() { return issn; }
 
-    public void setIssn(String issn) { this.issn = issn; }
+    public void setIssn(String issn) {
+        if(validations.validateIssnOrIsbn(issn))
+        this.issn = issn;
+    }
 }

@@ -13,6 +13,7 @@ public class BookReference extends Reference {
     protected String address;
     protected String edition;
     protected String isbn;
+    private final Validations validations = new Validations();
 
     public BookReference() { }
 
@@ -31,37 +32,64 @@ public class BookReference extends Reference {
 
     public String getAuthor() { return author; }
 
-    public void setAuthor(String author) { this.author = author; }
+    public void setAuthor(String author) {
+        if(validations.validateAuthorOrEditor(author))
+        this.author = author;
+    }
 
     public String getEditor() { return editor; }
 
-    public void setEditor(String editor) { this.editor = editor; }
+    public void setEditor(String editor) {
+        if(validations.validateAuthorOrEditor(editor))
+        this.editor = editor;
+    }
 
     public String getPublisher() { return publisher; }
 
-    public void setPublisher(String publisher) { this.publisher = publisher; }
+    public void setPublisher(String publisher) {
+        if(validations.validatePublisherOrOrganizationOrSeries(publisher))
+        this.publisher = publisher;
+    }
 
     public String getVolume() { return volume; }
 
-    public void setVolume(String volume) { this.volume = volume; }
+    public void setVolume(String volume) {
+        if(validations.isNumber(volume))
+        this.volume = volume;
+    }
 
     public String getNumber() { return number; }
 
-    public void setNumber(String number) { this.number = number; }
+    public void setNumber(String number) {
+        if(validations.validateNumber(number))
+        this.number = number;
+    }
 
     public String getSeries() { return series; }
 
-    public void setSeries(String series) { this.series = series; }
+    public void setSeries(String series) {
+        if(validations.validatePublisherOrOrganizationOrSeries(series))
+        this.series = series;
+    }
 
     public String getAddress() { return address; }
 
-    public void setAddress(String address) { this.address = address; }
+    public void setAddress(String address) {
+        if(validations.validateAddress(address))
+        this.address = address;
+    }
 
     public String getEdition() { return edition; }
 
-    public void setEdition(String edition) { this.edition = edition; }
+    public void setEdition(String edition) {
+        if(validations.validateEdition(edition))
+        this.edition = edition;
+    }
 
     public String getIsbn() { return isbn; }
 
-    public void setIsbn(String isbn) { this.isbn = isbn; }
+    public void setIsbn(String isbn) {
+        if(validations.validateIssnOrIsbn(isbn))
+        this.isbn = isbn;
+    }
 }

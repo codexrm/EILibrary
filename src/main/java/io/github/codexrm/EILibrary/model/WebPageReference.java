@@ -6,6 +6,7 @@ public class WebPageReference extends Reference {
 
     private String author;
     private String url;
+    private final Validations validations = new Validations();
 
     public WebPageReference() {
     }
@@ -18,9 +19,15 @@ public class WebPageReference extends Reference {
 
     public String getAuthor() { return author; }
 
-    public void setAuthor(String author) { this.author = author; }
+    public void setAuthor(String author) {
+        if(validations.validateAuthorOrEditor(author))
+        this.author = author;
+    }
 
     public String getUrl() { return url; }
 
-    public void setUrl(String url) { this.url = url; }
+    public void setUrl(String url) {
+        if(validations.validateUrl(url))
+        this.url = url;
+    }
 }

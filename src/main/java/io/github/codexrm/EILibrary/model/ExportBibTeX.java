@@ -232,7 +232,7 @@ public class ExportBibTeX implements Export {
         }
         if (reference.getType() != null) {
             bufferedWriter.newLine();
-            bufferedWriter.write("  type = {" + reference.getType() + "},");
+            bufferedWriter.write("  type = {" + reference.getType().toString() + "},");
         }
 
         writeBooks(reference, bufferedWriter);

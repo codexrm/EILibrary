@@ -9,6 +9,7 @@ public class ThesisReference extends Reference {
     private String school;
     private ThesisType type;
     private String address;
+    private final Validations validations = new Validations();
 
     public ThesisReference() {
     }
@@ -23,11 +24,17 @@ public class ThesisReference extends Reference {
 
     public String getAuthor() { return author; }
 
-    public void setAuthor(String author) { this.author = author; }
+    public void setAuthor(String author) {
+        if(validations.validateAuthorOrEditor(author))
+        this.author = author;
+    }
 
     public String getSchool() { return school; }
 
-    public void setSchool(String school) { this.school = school; }
+    public void setSchool(String school) {
+        if(validations.validateSchool(school))
+        this.school = school;
+    }
 
     public ThesisType getType() { return type; }
 
@@ -35,5 +42,8 @@ public class ThesisReference extends Reference {
 
     public String getAddress() { return address; }
 
-    public void setAddress(String address) { this.address = address; }
+    public void setAddress(String address) {
+        if(validations.validateAddress(address))
+        this.address = address;
+    }
 }
