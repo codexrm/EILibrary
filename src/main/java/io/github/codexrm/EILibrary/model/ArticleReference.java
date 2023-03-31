@@ -17,11 +17,23 @@ public class ArticleReference extends Reference {
 
     public ArticleReference(String title, String year, Months month, String note, Integer id, String author, String journal, String volume, String number, String pages, String issn) {
         super(title, year, month, note, id);
+
+        if(validations.validateAuthorOrEditor(author))
         this.author = author;
+
+        if(validations.validateJournalOrPublihser(journal))
         this.journal = journal;
+
+        if(validations.isNumber(volume))
         this.volume = volume;
+
+        if(validations.validateNumber(number))
         this.number = number;
+
+        if(validations.validatePages(pages))
         this.pages = pages;
+
+        if(validations.validateIssnOrIsbn(issn))
         this.issn = issn;
     }
 
@@ -35,7 +47,7 @@ public class ArticleReference extends Reference {
     public String getJournal() { return journal; }
 
     public void setJournal(String journal) {
-        if(validations.validateJournal(journal))
+        if(validations.validateJournalOrPublihser(journal))
         this.journal = journal;
     }
 

@@ -35,7 +35,7 @@ public class Validations {
             return false;
         }
     }
-    public boolean validateJournal(String field) {
+    public boolean validateJournalOrPublihser(String field) {
 
         final Pattern pat = Pattern.compile("[A-ZÁÉÍÓÚÜÑa-záéíóúüñ\\s\\.]+");
         final Matcher mat = pat.matcher(field);
@@ -68,7 +68,7 @@ public class Validations {
         }
     }
 
-    public boolean validatePublisherOrOrganizationOrSeries(String field) {
+    public boolean validateOrganizationOrSeries(String field) {
 
         final Pattern pat = Pattern.compile("[A-ZÁÉÍÓÚÜÑa-záéíóúüñ\\s]+");
         final Matcher mat = pat.matcher(field);
@@ -81,7 +81,7 @@ public class Validations {
 
     public boolean validateAddress(String address) {
 
-        final Pattern pat = Pattern.compile("^[A-ZÁÉÍÓÚÜÑ][A-ZÁÉÍÓÚÜÑa-záéíóúüñ\\s]+,\\s[A-Za-záéíóúüñÁÉÍÓÚÜÑ]+");
+        final Pattern pat = Pattern.compile("^[A-ZÁÉÍÓÚÜÑ][A-ZÁÉÍÓÚÜÑa-záéíóúüñ\\s]+[,\\s*[A-Za-záéíóúüñÁÉÍÓÚÜÑ]+]*");
         final Matcher mat = pat.matcher(address);
         if (mat.matches()) {
             return true;
@@ -163,6 +163,4 @@ public class Validations {
             }
         } else return null;
     }
-
-
 }

@@ -13,7 +13,11 @@ public class WebPageReference extends Reference {
 
     public WebPageReference(String title, String year, Months month, String note, Integer id, String author, String url) {
         super(title, year, month, note, id);
+
+        if(validations.validateAuthorOrEditor(author))
         this.author = author;
+
+        if(validations.validateUrl(url))
         this.url = url;
     }
 

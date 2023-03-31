@@ -1,0 +1,80 @@
+TY  - JOUR
+N1  - aa
+AU  - Medina,Juan
+TI  - Proyecto de medio ambiente
+T2  - ciencia y educacion
+PY  - 2008
+VL  - 1
+C7  - 3
+SN  - 3842-4802
+SP  - 10
+ER  - 
+TY  - BOOK
+N1  - bb
+AU  - Navarro,Enrique
+AU  - Marin,Antonio
+A3  - Diaz,Mercedes
+TI  - Relacion de las carreras
+PB  - Prencite Hall
+PY  - 2020--2021
+VL  - 2
+NV  - First
+CY  - New York
+ET  - 2
+SN  - 5510-2031
+T2  - SLNS
+ER  - 
+TY  - CHAP
+N1  - cc
+AU  - Soler,Marco
+A2  - Ulloa,Alicia
+TI  - La educacion secundaria
+PB  - K.madriz
+PY  - 2019
+IS  - 1
+VL  - 5
+CY  - DF,Mexico
+ET  - 2
+T3  - SDN
+SE  - 6
+SN  - 3205-8104
+SP  - 30-50
+ER  - 
+TY  - THES
+N1  - ee
+AU  - Musa,Berta
+TI  - Imagenes
+PB  - Iberoamerica
+PY  - 2023
+M3  - phd
+CY  - Quito,Ecuador
+ER  - 
+TY  - CONF
+N1  - ff
+A2  - Gomez,Claudia
+TI  - Cambio Climatico
+C2  - 2020
+VL  - 5
+PB  - Airt
+NV  - 3
+T3  - LTD
+CY  - Bogota,Colombia
+ER  - 
+TY  - CPAPER
+N1  - gg
+AU  - Lopez,Beth
+A2  - Guerrero,Olivia
+TI  - Primefaces
+PY  - 2012
+VL  - 3
+PB  - Informatizacion
+CY  - Barcelona,España
+SP  - 23,24
+ER  - 
+TY  - ELEC
+N1  - hh
+AU  - Alfonzo,Eric
+TI  - Java FX
+PY  - 2023
+UR  - https://JavaFX
+ER  - 

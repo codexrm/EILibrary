@@ -14,8 +14,13 @@ public class BookLetReference extends Reference {
 
     public BookLetReference(String title, String year, Months month, String note, Integer id, String author, String howpublished, String address) {
         super(title, year, month, note, id);
+
+        if(validations.validateAuthorOrEditor(author))
         this.author = author;
+
         this.howpublished = howpublished;
+
+        if(validations.validateAddress(address))
         this.address = address;
     }
 

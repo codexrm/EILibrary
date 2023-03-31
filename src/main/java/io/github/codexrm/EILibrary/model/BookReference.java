@@ -19,14 +19,32 @@ public class BookReference extends Reference {
 
     public BookReference(String title, String year, Months month, String note, Integer id, String author, String editor, String publisher, String volume, String number, String series, String address, String edition, String isbn) {
         super(title, year, month, note, id);
+
+        if(validations.validateAuthorOrEditor(author))
         this.author = author;
+
+        if(validations.validateAuthorOrEditor(editor))
         this.editor = editor;
+
+        if(validations.validateJournalOrPublihser(publisher))
         this.publisher = publisher;
+
+        if(validations.isNumber(volume))
         this.volume = volume;
+
+        if(validations.validateNumber(number))
         this.number = number;
+
+        if(validations.validateOrganizationOrSeries(series))
         this.series = series;
+
+        if(validations.validateAddress(address))
         this.address = address;
+
+        if(validations.validateEdition(edition))
         this.edition = edition;
+
+        if(validations.validateIssnOrIsbn(isbn))
         this.isbn = isbn;
     }
 
@@ -47,7 +65,7 @@ public class BookReference extends Reference {
     public String getPublisher() { return publisher; }
 
     public void setPublisher(String publisher) {
-        if(validations.validatePublisherOrOrganizationOrSeries(publisher))
+        if(validations.validateJournalOrPublihser(publisher))
         this.publisher = publisher;
     }
 
@@ -68,7 +86,7 @@ public class BookReference extends Reference {
     public String getSeries() { return series; }
 
     public void setSeries(String series) {
-        if(validations.validatePublisherOrOrganizationOrSeries(series))
+        if(validations.validateOrganizationOrSeries(series))
         this.series = series;
     }
 

@@ -16,9 +16,16 @@ public class ThesisReference extends Reference {
 
     public ThesisReference(String title, String year, Months month, String note, Integer id, String author, String school, ThesisType type, String address) {
         super(title, year, month, note, id);
+
+        if(validations.validateAuthorOrEditor(author))
         this.author = author;
+
+        if(validations.validateSchool(school))
         this.school = school;
+
         this.type = type;
+
+        if(validations.validateAddress(address))
         this.address = address;
     }
 

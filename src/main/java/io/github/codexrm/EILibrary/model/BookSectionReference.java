@@ -13,10 +13,17 @@ public class BookSectionReference extends BookReference {
     public BookSectionReference() {
     }
 
-    public BookSectionReference(String title, String year, Months month, String note, Integer id, String author, String editor, String publisher, String volume, String number, String series, String address, String edition, String isbn, String chapter, String pages, BookSectionType type) {
+    public BookSectionReference(String title, String year, Months month, String note, Integer id, String author, String editor, String publisher, String volume, String number, String series, String address, String edition, String isbn, String chapter,
+                                String pages, BookSectionType type) {
+
         super(title, year, month, note, id, author, editor, publisher, volume, number, series, address, edition, isbn);
+
+        if(validations.isNumber(chapter))
         this.chapter = chapter;
+
+        if(validations.validatePages(pages))
         this.pages = pages;
+
         this.type = type;
     }
 

@@ -9,7 +9,6 @@ import java.util.Collections;
 
 public class ExportRis implements Export {
 
-
     @Override
     public void writeValue(ArrayList<Reference> referenceList, String path) throws IOException {
 

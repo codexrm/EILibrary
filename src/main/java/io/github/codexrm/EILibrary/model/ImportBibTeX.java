@@ -23,10 +23,10 @@ public class ImportBibTeX implements Import {
         Reference reference = new Reference();
         for (BibTeXEntry entry : entries) {
 
-            if (entry.getType().toString().equalsIgnoreCase("Article")) {
+            if (entry.getType().toString().equalsIgnoreCase("article")) {
                 reference = createArticleReference(entry);
             } else {
-                if (entry.getType().toString().equalsIgnoreCase("Book")) {
+                if (entry.getType().toString().equalsIgnoreCase("book")) {
                     reference = createBookReference(entry);
                 } else {
                     if (entry.getType().toString().equalsIgnoreCase("inbook")) {
@@ -78,7 +78,7 @@ public class ImportBibTeX implements Import {
         }
 
         value = entry.getField(BibTeXEntry.KEY_YEAR);
-        if (value != null && isNumber(value.toUserString())) {
+        if (value != null ) {
             reference.setYear(value.toUserString());
         }
 
@@ -178,7 +178,8 @@ public class ImportBibTeX implements Import {
     }
     private void setBookSectionType(final BibTeXEntry entry, BookSectionReference bookSection) {
 
-        switch (entry.getType().getValue()) {
+        Value value = entry.getField(BibTeXEntry.KEY_TYPE);
+        switch (value.toString()) {
             case "Master´s thesis":
                 bookSection.setType(BookSectionType.MATHESIS);
             case "PhD thesis":
@@ -227,7 +228,6 @@ public class ImportBibTeX implements Import {
 
     private Reference createBookReference(BibTeXEntry entry) {
         BookReference book = new BookReference();
-        commonField(entry, book);
         createBook(entry, book);
         return book;
     }
@@ -270,7 +270,6 @@ public class ImportBibTeX implements Import {
 
     private Reference createBookSectionReference(BibTeXEntry entry) {
         BookSectionReference bookSection = new BookSectionReference();
-        commonField(entry, bookSection);
         createBook(entry, bookSection);
         Value value = entry.getField(BibTeXEntry.KEY_CHAPTER);
         if (value != null) {
@@ -379,7 +378,7 @@ public class ImportBibTeX implements Import {
         }
         value = entry.getField(BibTeXEntry.KEY_VOLUME);
         if (value != null) {
-            paper.setAddress(value.toUserString());
+            paper.setVolume(value.toUserString());
         }
         value = entry.getField(BibTeXEntry.KEY_NUMBER);
         if (value != null) {

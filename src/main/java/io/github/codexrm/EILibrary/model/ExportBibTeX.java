@@ -142,7 +142,7 @@ public class ExportBibTeX implements Export {
     private void writeArticleReference(ArticleReference reference, BufferedWriter bufferedWriter)
             throws IOException {
 
-        bufferedWriter.write("@Article{" + reference.getId() + ",");
+        bufferedWriter.write("@article{" + reference.getId() + ",");
         commonField(reference, bufferedWriter);
 
         if (reference.getAuthor() != null) {
@@ -161,7 +161,7 @@ public class ExportBibTeX implements Export {
             bufferedWriter.newLine();
         }
         if (reference.getPages() != null) {
-            bufferedWriter.write("  pages = {" + reference.getPages() + "}");
+            bufferedWriter.write("  pages = {" + reference.getPages() + "},");
             bufferedWriter.newLine();
         }
         if (reference.getIssn() != null) {
@@ -202,7 +202,7 @@ public class ExportBibTeX implements Export {
             bufferedWriter.newLine();
         }
         if (reference.getEdition() != null) {
-            bufferedWriter.write("  edition = {" + reference.getEdition() + "}");
+            bufferedWriter.write("  edition = {" + reference.getEdition() + "},");
             bufferedWriter.newLine();
         }
         if (reference.getIsbn() != null) {
@@ -212,7 +212,7 @@ public class ExportBibTeX implements Export {
 
     private void writeBookReference(BookReference reference, BufferedWriter bufferedWriter) throws IOException {
 
-        bufferedWriter.write("@Book{" + reference.getId() + ",");
+        bufferedWriter.write("@book{" + reference.getId() + ",");
         writeBooks(reference, bufferedWriter);
         closeReference(bufferedWriter);
     }
@@ -340,6 +340,10 @@ public class ExportBibTeX implements Export {
         }
         if (reference.getVolume() != null) {
             bufferedWriter.write(vl + reference.getVolume() + "},");
+            bufferedWriter.newLine();
+        }
+        if (reference.getNumber() != null) {
+            bufferedWriter.write("  number = {" + reference.getNumber() + "},");
             bufferedWriter.newLine();
         }
         if (reference.getSeries() != null) {

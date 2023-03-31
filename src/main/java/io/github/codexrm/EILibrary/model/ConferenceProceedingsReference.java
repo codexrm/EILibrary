@@ -19,13 +19,29 @@ public class ConferenceProceedingsReference extends Reference {
 
     public ConferenceProceedingsReference(String title, String year, Months month, String note, Integer id, String editor, String volume, String number, String series, String address, String publisher, String organization, String isbn) {
         super(title, year, month, note, id);
+
+        if(validations.validateAuthorOrEditor(editor))
         this.editor = editor;
+
+        if(validations.isNumber(volume))
         this.volume = volume;
+
+        if(validations.validateNumber(number))
         this.number = number;
+
+        if(validations.validateOrganizationOrSeries(series))
         this.series = series;
+
+        if(validations.validateAddress(address))
         this.address = address;
+
+        if(validations.validateJournalOrPublihser(publisher))
         this.publisher = publisher;
+
+        if(validations.validateOrganizationOrSeries(organization))
         this.organization = organization;
+
+        if(validations.validateIssnOrIsbn(isbn))
         this.isbn = isbn;
     }
 
@@ -53,7 +69,7 @@ public class ConferenceProceedingsReference extends Reference {
     public String getSeries() { return series; }
 
     public void setSeries(String series) {
-        if(validations.validatePublisherOrOrganizationOrSeries(series))
+        if(validations.validateOrganizationOrSeries(series))
         this.series = series;
     }
 
@@ -67,14 +83,14 @@ public class ConferenceProceedingsReference extends Reference {
     public String getPublisher() { return publisher; }
 
     public void setPublisher(String publisher) {
-        if(validations.validatePublisherOrOrganizationOrSeries(publisher))
+        if(validations.validateJournalOrPublihser(publisher))
         this.publisher = publisher;
     }
 
     public String getOrganization() { return organization; }
 
     public void setOrganization(String organization) {
-        if(validations.validatePublisherOrOrganizationOrSeries(organization))
+        if(validations.validateOrganizationOrSeries(organization))
         this.organization = organization;
     }
 

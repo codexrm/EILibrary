@@ -9,12 +9,13 @@ public class Reference {
     protected Months month;
     protected String note;
     protected Integer id;
+    private final Validations validations = new Validations();
 
     public Reference() { }
 
     public Reference(String title, String year, Months month, String note, Integer id) {
         this.title = title;
-        this.year = year;
+        this.year =  validations.validateYear(year);
         this.month = month;
         this.note = note;
         this.id = id;
@@ -26,10 +27,7 @@ public class Reference {
 
     public String getYear() { return year; }
 
-    public void setYear(String year) {
-        Validations validations = new Validations();
-        this.year = validations.validateYear(year);
-    }
+    public void setYear(String year) { this.year = validations.validateYear(year); }
 
     public Months getMonth() { return month; }
 

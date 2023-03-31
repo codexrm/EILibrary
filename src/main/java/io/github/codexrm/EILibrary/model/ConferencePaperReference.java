@@ -18,17 +18,38 @@ public class ConferencePaperReference extends Reference {
 
     public ConferencePaperReference() { }
 
-    public ConferencePaperReference(String title, String year, Months month, String note, Integer id, String author, String bookTitle, String editor, String volume, String number, String series, String pages, String address, String organization, String publisher) {
+    public ConferencePaperReference(String title, String year, Months month, String note, Integer id, String author, String bookTitle, String editor, String volume, String number, String series, String pages, String address, String organization,
+                                    String publisher) {
+
         super(title, year, month, note, id);
+
+        if(validations.validateAuthorOrEditor(author))
         this.author = author;
+
         this.bookTitle = bookTitle;
+
+        if(validations.validateAuthorOrEditor(editor))
         this.editor = editor;
+
+        if(validations.isNumber(volume))
         this.volume = volume;
+
+        if(validations.validateNumber(number))
         this.number = number;
+
+        if(validations.validateOrganizationOrSeries(series))
         this.series = series;
+
+        if(validations.validatePages(pages))
         this.pages = pages;
+
+        if(validations.validateAddress(address))
         this.address = address;
+
+        if(validations.validateOrganizationOrSeries(organization))
         this.organization = organization;
+
+        if(validations.validateJournalOrPublihser(publisher))
         this.publisher = publisher;
     }
 
@@ -67,7 +88,7 @@ public class ConferencePaperReference extends Reference {
     public String getSeries() { return series; }
 
     public void setSeries(String series) {
-        if(validations.validatePublisherOrOrganizationOrSeries(series))
+        if(validations.validateOrganizationOrSeries(series))
         this.series = series;
     }
 
@@ -88,14 +109,14 @@ public class ConferencePaperReference extends Reference {
     public String getOrganization() { return organization; }
 
     public void setOrganization(String organization) {
-        if(validations.validatePublisherOrOrganizationOrSeries(organization))
+        if(validations.validateOrganizationOrSeries(organization))
         this.organization = organization;
     }
 
     public String getPublisher() { return publisher; }
 
     public void setPublisher(String publisher) {
-        if(validations.validatePublisherOrOrganizationOrSeries(publisher))
+        if(validations.validateJournalOrPublihser(publisher))
         this.publisher = publisher;
     }
 }
