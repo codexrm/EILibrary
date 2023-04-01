@@ -1,6 +1,6 @@
 package io.github.codexrm.EILibrary.model;
 
-import io.github.codexrm.EILibrary.enums.ThesisType;
+import io.github.codexrm.EILibrary.enums.ThesisTypeLibrary;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -259,7 +259,7 @@ public class ExportBibTeX implements Export {
 
     private void writeThesisReference(ThesisR reference, BufferedWriter bufferedWriter) throws IOException {
 
-        if (reference.getType().equals(ThesisType.MASTERS)) {
+        if (reference.getType().equals(ThesisTypeLibrary.MASTERS)) {
             bufferedWriter.write("@mastersthesis{" + reference.getId() + ",");
         } else {
             bufferedWriter.write("@phdthesis{" + reference.getId() + ",");

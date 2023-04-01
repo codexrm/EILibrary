@@ -1,6 +1,6 @@
 package io.github.codexrm.EILibrary.enums;
 
-public enum Format {
+public enum FormatLibrary {
 
     RIS, BIBTEX
 }

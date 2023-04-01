@@ -1,6 +1,6 @@
 package io.github.codexrm.EILibrary.enums;
 
-public enum Months {
+public enum MonthsLibrary {
     jan,
     feb,
     mar,

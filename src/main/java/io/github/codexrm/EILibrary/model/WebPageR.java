@@ -1,6 +1,6 @@
 package io.github.codexrm.EILibrary.model;
 
-import io.github.codexrm.EILibrary.enums.Months;
+import io.github.codexrm.EILibrary.enums.MonthsLibrary;
 
 public class WebPageR extends BaseR {
 
@@ -11,7 +11,7 @@ public class WebPageR extends BaseR {
     public WebPageR() {
     }
 
-    public WebPageR(String title, String year, Months month, String note, Integer id, String author, String url) {
+    public WebPageR(String title, String year, MonthsLibrary month, String note, Integer id, String author, String url) {
         super(title, year, month, note, id);
 
         if(validations.validateAuthorOrEditor(author))

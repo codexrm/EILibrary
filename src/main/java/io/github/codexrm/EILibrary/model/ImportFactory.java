@@ -1,6 +1,6 @@
 package io.github.codexrm.EILibrary.model;
 
-import io.github.codexrm.EILibrary.enums.Format;
+import io.github.codexrm.EILibrary.enums.FormatLibrary;
 
 public class ImportFactory {
 
@@ -8,9 +8,9 @@ public class ImportFactory {
         // Do nothing
     }
 
-    public Import getImport(Format type) {
+    public Import getImport(FormatLibrary type) {
 
-        if (type.equals(Format.RIS)) {
+        if (type.equals(FormatLibrary.RIS)) {
             return  new ImportRis();
         } else {
             return new ImportBibTeX();

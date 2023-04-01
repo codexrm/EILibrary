@@ -1,6 +1,6 @@
 package io.github.codexrm.EILibrary.model;
 
-import io.github.codexrm.EILibrary.enums.Months;
+import io.github.codexrm.EILibrary.enums.MonthsLibrary;
 
 public class ConferencePaperR extends BaseR {
 
@@ -18,7 +18,7 @@ public class ConferencePaperR extends BaseR {
 
     public ConferencePaperR() { }
 
-    public ConferencePaperR(String title, String year, Months month, String note, Integer id, String author, String bookTitle, String editor, String volume, String number, String series, String pages, String address, String organization,
+    public ConferencePaperR(String title, String year, MonthsLibrary month, String note, Integer id, String author, String bookTitle, String editor, String volume, String number, String series, String pages, String address, String organization,
                             String publisher) {
 
         super(title, year, month, note, id);

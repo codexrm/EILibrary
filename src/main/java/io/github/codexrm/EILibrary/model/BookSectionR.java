@@ -1,20 +1,20 @@
 package io.github.codexrm.EILibrary.model;
 
-import io.github.codexrm.EILibrary.enums.BookSectionType;
-import io.github.codexrm.EILibrary.enums.Months;
+import io.github.codexrm.EILibrary.enums.BookSectionTypeLibrary;
+import io.github.codexrm.EILibrary.enums.MonthsLibrary;
 
 public class BookSectionR extends BookR {
 
     private String chapter;
     private String pages;
-    private BookSectionType type;
+    private BookSectionTypeLibrary type;
     private final Validations validations = new Validations();
 
     public BookSectionR() {
     }
 
-    public BookSectionR(String title, String year, Months month, String note, Integer id, String author, String editor, String publisher, String volume, String number, String series, String address, String edition, String isbn, String chapter,
-                        String pages, BookSectionType type) {
+    public BookSectionR(String title, String year, MonthsLibrary month, String note, Integer id, String author, String editor, String publisher, String volume, String number, String series, String address, String edition, String isbn, String chapter,
+                        String pages, BookSectionTypeLibrary type) {
 
         super(title, year, month, note, id, author, editor, publisher, volume, number, series, address, edition, isbn);
 
@@ -41,9 +41,9 @@ public class BookSectionR extends BookR {
         this.pages = pages;
     }
 
-    public BookSectionType getType() { return type; }
+    public BookSectionTypeLibrary getType() { return type; }
 
-    public void setType(BookSectionType type) {
+    public void setType(BookSectionTypeLibrary type) {
         this.type = type;
     }
 }

@@ -1,20 +1,20 @@
 package io.github.codexrm.EILibrary.model;
 
-import io.github.codexrm.EILibrary.enums.Months;
-import io.github.codexrm.EILibrary.enums.ThesisType;
+import io.github.codexrm.EILibrary.enums.MonthsLibrary;
+import io.github.codexrm.EILibrary.enums.ThesisTypeLibrary;
 
 public class ThesisR extends BaseR {
 
     private String author;
     private String school;
-    private ThesisType type;
+    private ThesisTypeLibrary type;
     private String address;
     private final Validations validations = new Validations();
 
     public ThesisR() {
     }
 
-    public ThesisR(String title, String year, Months month, String note, Integer id, String author, String school, ThesisType type, String address) {
+    public ThesisR(String title, String year, MonthsLibrary month, String note, Integer id, String author, String school, ThesisTypeLibrary type, String address) {
         super(title, year, month, note, id);
 
         if(validations.validateAuthorOrEditor(author))
@@ -43,9 +43,9 @@ public class ThesisR extends BaseR {
         this.school = school;
     }
 
-    public ThesisType getType() { return type; }
+    public ThesisTypeLibrary getType() { return type; }
 
-    public void setType(ThesisType type) { this.type = type; }
+    public void setType(ThesisTypeLibrary type) { this.type = type; }
 
     public String getAddress() { return address; }
 

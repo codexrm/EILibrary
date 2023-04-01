@@ -1,6 +1,6 @@
 package io.github.codexrm.EILibrary.controller;
 
-import io.github.codexrm.EILibrary.enums.Format;
+import io.github.codexrm.EILibrary.enums.FormatLibrary;
 import io.github.codexrm.EILibrary.model.*;
 import org.jbibtex.ParseException;
 import org.jbibtex.TokenMgrException;
@@ -28,13 +28,13 @@ public class EIManager {
     public void setImportFactory(ImportFactory importFactory) { this.importFactory = importFactory; }
 
 
-    public void exportReferenceList(Path path, ArrayList<BaseR> baseRList, Format format) throws IOException {
+    public void exportReferenceList(Path path, ArrayList<BaseR> baseRList, FormatLibrary format) throws IOException {
 
         Export export = exportFactory.getExport(format);
         export.writeValue(baseRList, path.toString());
     }
 
-    public ArrayList<BaseR> importReferences(String path, Format format) throws IOException, TokenMgrException, ParseException {
+    public ArrayList<BaseR> importReferences(String path, FormatLibrary format) throws IOException, TokenMgrException, ParseException {
 
         Import importer = importFactory.getImport(format);
         return importer.readFile(path);

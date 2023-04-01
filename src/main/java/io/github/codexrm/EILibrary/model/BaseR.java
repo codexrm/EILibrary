@@ -1,19 +1,19 @@
 package io.github.codexrm.EILibrary.model;
 
-import io.github.codexrm.EILibrary.enums.Months;
+import io.github.codexrm.EILibrary.enums.MonthsLibrary;
 
 public class BaseR {
 
     protected String title;
     protected String year;
-    protected Months month;
+    protected MonthsLibrary month;
     protected String note;
     protected Integer id;
     private final Validations validations = new Validations();
 
     public BaseR() { }
 
-    public BaseR(String title, String year, Months month, String note, Integer id) {
+    public BaseR(String title, String year, MonthsLibrary month, String note, Integer id) {
         this.title = title;
         this.year =  validations.validateYear(year);
         this.month = month;
@@ -29,9 +29,9 @@ public class BaseR {
 
     public void setYear(String year) { this.year = validations.validateYear(year); }
 
-    public Months getMonth() { return month; }
+    public MonthsLibrary getMonth() { return month; }
 
-    public void setMonth(Months month) { this.month = month; }
+    public void setMonth(MonthsLibrary month) { this.month = month; }
 
     public String getNote() { return note; }
 

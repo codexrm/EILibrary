@@ -1,6 +1,6 @@
 package io.github.codexrm.EILibrary.model;
 
-import io.github.codexrm.EILibrary.enums.Months;
+import io.github.codexrm.EILibrary.enums.MonthsLibrary;
 
 public class ArticleR extends BaseR {
 
@@ -15,7 +15,7 @@ public class ArticleR extends BaseR {
     public ArticleR() {
     }
 
-    public ArticleR(String title, String year, Months month, String note, Integer id, String author, String journal, String volume, String number, String pages, String issn) {
+    public ArticleR(String title, String year, MonthsLibrary month, String note, Integer id, String author, String journal, String volume, String number, String pages, String issn) {
         super(title, year, month, note, id);
 
         if(validations.validateAuthorOrEditor(author))

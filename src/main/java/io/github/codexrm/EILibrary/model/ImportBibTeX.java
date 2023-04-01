@@ -93,74 +93,74 @@ public class ImportBibTeX implements Import {
         }
     }
 
-    private Months getMonth(String date) {
+    private MonthsLibrary getMonth(String date) {
 
         if(isNumber(date)) {
 
             switch (date) {
                 case "01":
-                    return Months.jan;
+                    return MonthsLibrary.jan;
                 case "02":
-                    return Months.feb;
+                    return MonthsLibrary.feb;
                 case "03":
-                    return Months.mar;
+                    return MonthsLibrary.mar;
                 case "04":
-                    return Months.apr;
+                    return MonthsLibrary.apr;
                 case "05":
-                    return Months.may;
+                    return MonthsLibrary.may;
                 case "06":
-                    return Months.jun;
+                    return MonthsLibrary.jun;
                 case "07":
-                    return Months.jul;
+                    return MonthsLibrary.jul;
                 case "08":
-                    return Months.aug;
+                    return MonthsLibrary.aug;
                 case "09":
-                    return Months.sep;
+                    return MonthsLibrary.sep;
                 case "10":
-                    return Months.oct;
+                    return MonthsLibrary.oct;
                 case "11":
-                    return Months.nov;
+                    return MonthsLibrary.nov;
                 case "12":
-                    return Months.dec;
+                    return MonthsLibrary.dec;
             }
         }else{
                 switch (date) {
                     case "jan":
                     case "January":
-                        return Months.jan;
+                        return MonthsLibrary.jan;
                     case "feb":
                     case "February":
-                        return Months.feb;
+                        return MonthsLibrary.feb;
                     case "mar":
                     case "March":
-                        return Months.mar;
+                        return MonthsLibrary.mar;
                     case "apr":
                     case "April":
-                        return Months.apr;
+                        return MonthsLibrary.apr;
                     case "may":
                     case "May":
-                        return Months.may;
+                        return MonthsLibrary.may;
                     case "jun":
                     case "June":
-                        return Months.jun;
+                        return MonthsLibrary.jun;
                     case "jul":
                     case "July":
-                        return Months.jul;
+                        return MonthsLibrary.jul;
                     case "aug":
                     case "August":
-                        return Months.aug;
+                        return MonthsLibrary.aug;
                     case "sep":
                     case "September":
-                        return Months.sep;
+                        return MonthsLibrary.sep;
                     case "oct":
                     case "October":
-                        return Months.oct;
+                        return MonthsLibrary.oct;
                     case "nov":
                     case "November":
-                        return Months.nov;
+                        return MonthsLibrary.nov;
                     case "dec":
                     case "December":
-                        return Months.dec;
+                        return MonthsLibrary.dec;
                 }
             }
 
@@ -181,21 +181,21 @@ public class ImportBibTeX implements Import {
         Value value = entry.getField(BibTeXEntry.KEY_TYPE);
         switch (value.toString()) {
             case "Master´s thesis":
-                bookSection.setType(BookSectionType.MATHESIS);
+                bookSection.setType(BookSectionTypeLibrary.MATHESIS);
             case "PhD thesis":
-                bookSection.setType(BookSectionType.PHDTHESIS);
+                bookSection.setType(BookSectionTypeLibrary.PHDTHESIS);
             case "Candidate thesis":
-                bookSection.setType(BookSectionType.CANDTHESIS);
+                bookSection.setType(BookSectionTypeLibrary.CANDTHESIS);
             case "Technical report":
-                bookSection.setType(BookSectionType.TECHREPORT);
+                bookSection.setType(BookSectionTypeLibrary.TECHREPORT);
             case "Research report":
-                bookSection.setType(BookSectionType.RESREPORT);
+                bookSection.setType(BookSectionTypeLibrary.RESREPORT);
             case "Software":
-                bookSection.setType(BookSectionType.SOFTWARE);
+                bookSection.setType(BookSectionTypeLibrary.SOFTWARE);
             case "Audio CD":
-                bookSection.setType(BookSectionType.AUDIOCD);
+                bookSection.setType(BookSectionTypeLibrary.AUDIOCD);
             case "Data CD":
-                bookSection.setType(BookSectionType.DataCD);
+                bookSection.setType(BookSectionTypeLibrary.DataCD);
         }
     }
 
@@ -314,9 +314,9 @@ public class ImportBibTeX implements Import {
             thesis.setSchool(value.toUserString());
         }
         if (entry.getType().getValue().equals("mastersthesis")) {
-            thesis.setType(ThesisType.MASTERS);
+            thesis.setType(ThesisTypeLibrary.MASTERS);
         } else {
-            thesis.setType(ThesisType.PHD);
+            thesis.setType(ThesisTypeLibrary.PHD);
         }
         value = entry.getField(BibTeXEntry.KEY_ADDRESS);
         if (value != null) {

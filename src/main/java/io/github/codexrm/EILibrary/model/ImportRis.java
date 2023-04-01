@@ -1,6 +1,6 @@
 package io.github.codexrm.EILibrary.model;
 
-import io.github.codexrm.EILibrary.enums.ThesisType;
+import io.github.codexrm.EILibrary.enums.ThesisTypeLibrary;
 import io.github.codexrm.jris.*;
 import org.jbibtex.ParseException;
 import org.jbibtex.TokenMgrException;
@@ -148,10 +148,10 @@ public class ImportRis implements Import {
         thesis.setSchool(entry.getSchool());
         thesis.setYear(entry.getYear());
         if (entry.getType().equals("Masters")) {
-            thesis.setType(ThesisType.MASTERS);
+            thesis.setType(ThesisTypeLibrary.MASTERS);
         } else {
             if (entry.getType().equals("Phd")) {
-                thesis.setType(ThesisType.PHD);
+                thesis.setType(ThesisTypeLibrary.PHD);
             }
         }
         thesis.setAddress(entry.getAddress());

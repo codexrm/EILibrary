@@ -619,3 +619,113 @@
   howpublished = {https://JavaFX}
 }
 
+@article{1,
+  title = {Proyecto de medio ambiente},
+  month = mar,
+  year = {2008},
+  note = {aa},
+  author = {Medina,Juan},
+  journal = {ciencia y educacion},
+  volume = {1},
+  number = {3},
+  pages = {10},
+  issn = {3842-4802}
+}
+
+@book{2,
+  title = {Relacion de las carreras},
+  month = apr,
+  year = {2020--2021},
+  note = {bb},
+  author = {Navarro,Enrique and Marin,Antonio},
+  editor = {Diaz,Mercedes},
+  publisher = {Prencite Hall},
+  volume = {2},
+  number = {First},
+  series = {SLNS},
+  address = {New York},
+  edition = {2},
+  isbn = {5510-2031}
+}
+
+@inbook{3,
+  chapter = {6},
+  pages = {30-50},
+  type = {Data CD},
+  title = {La educacion secundaria},
+  month = nov,
+  year = {2019},
+  note = {cc},
+  author = {Soler,Marco},
+  editor = {Ulloa,Alicia},
+  publisher = {K.madriz},
+  volume = {5},
+  number = {1},
+  series = {SDN},
+  address = {DF,Mexico},
+  edition = {2},
+  isbn = {3205-8104}
+}
+
+@booklet{4,
+  title = {Introduccion a las funciones},
+  month = dec,
+  year = {2016},
+  note = {dd},
+  author = {Fernandez,Julia},
+  howpublished = {Inst. Ciencias},
+  address = {Cienfuegos,Cuba}
+}
+
+@phdthesis{5,
+  title = {Imagenes},
+  month = jun,
+  year = {2023},
+  note = {ee},
+  author = {Musa,Berta},
+  school = {Iberoamerica},
+  type = {phd},
+  address = {Quito,Ecuador}
+}
+
+@proceedings{6,
+  title = {Cambio Climatico},
+  month = may,
+  year = {2020},
+  note = {ff},
+  editor = {Gomez,Claudia},
+  volume = {5},
+  number = {3},
+  series = {LTD},
+  publisher = {Airt},
+  organization = {Lucha por el mundo},
+  isbn = {3104-2018},
+  address = {Bogota,Colombia}
+}
+
+@InProceedings{7,
+  title = {Primefaces},
+  month = feb,
+  year = {2012},
+  note = {gg},
+  author = {Lopez,Beth},
+  editor = {Guerrero,Olivia},
+  booktitle = {Primefaces y otras tegnologias},
+  volume = {3},
+  number = {4},
+  series = {DLS},
+  publisher = {Informatizacion},
+  organization = {Informatizacion},
+  address = {Barcelona,España},
+  pages = {23,24}
+}
+
+@misc{8,
+  title = {Java FX},
+  month = aug,
+  year = {2023},
+  note = {hh},
+  author = {Alfonzo,Eric},
+  howpublished = {https://JavaFX}
+}
+

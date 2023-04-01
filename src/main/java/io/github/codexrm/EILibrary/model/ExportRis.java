@@ -1,6 +1,6 @@
 package io.github.codexrm.EILibrary.model;
 
-import io.github.codexrm.EILibrary.enums.ThesisType;
+import io.github.codexrm.EILibrary.enums.ThesisTypeLibrary;
 import io.github.codexrm.jris.*;
 
 import java.io.IOException;
@@ -140,7 +140,7 @@ public class ExportRis implements Export {
         thesis.setTitle(reference.getTitle());
         thesis.setSchool(reference.getSchool());
         thesis.setYear(reference.getYear());
-        if (reference.getType().equals(ThesisType.MASTERS)) {
+        if (reference.getType().equals(ThesisTypeLibrary.MASTERS)) {
             thesis.setType("Masters");
         } else {
             thesis.setType("phd");

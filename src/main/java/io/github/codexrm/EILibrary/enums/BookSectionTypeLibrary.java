@@ -1,6 +1,6 @@
 package io.github.codexrm.EILibrary.enums;
 
-public enum BookSectionType {
+public enum BookSectionTypeLibrary {
 
     MATHESIS("Master´s thesis"),
     PHDTHESIS("PhD thesis"),
@@ -14,7 +14,7 @@ public enum BookSectionType {
 
     private final String description;
 
-    BookSectionType(String description) {
+    BookSectionTypeLibrary(String description) {
         this.description = description;
     }
 

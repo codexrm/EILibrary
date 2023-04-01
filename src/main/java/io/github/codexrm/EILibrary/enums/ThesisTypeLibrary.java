@@ -1,13 +1,13 @@
 package io.github.codexrm.EILibrary.enums;
 
-public enum ThesisType {
+public enum ThesisTypeLibrary {
 
     MASTERS("Masters"),
     PHD("phd");
 
     private final String description;
 
-    ThesisType(String description) {
+    ThesisTypeLibrary(String description) {
         this.description = description;
     }
 
