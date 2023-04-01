@@ -3,7 +3,7 @@ package io.github.codexrm.EILibrary.model;
 import io.github.codexrm.EILibrary.enums.Months;
 import io.github.codexrm.EILibrary.enums.ThesisType;
 
-public class ThesisReference extends Reference {
+public class ThesisR extends BaseR {
 
     private String author;
     private String school;
@@ -11,10 +11,10 @@ public class ThesisReference extends Reference {
     private String address;
     private final Validations validations = new Validations();
 
-    public ThesisReference() {
+    public ThesisR() {
     }
 
-    public ThesisReference(String title, String year, Months month, String note, Integer id, String author, String school, ThesisType type, String address) {
+    public ThesisR(String title, String year, Months month, String note, Integer id, String author, String school, ThesisType type, String address) {
         super(title, year, month, note, id);
 
         if(validations.validateAuthorOrEditor(author))

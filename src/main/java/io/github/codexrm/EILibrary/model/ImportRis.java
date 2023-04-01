@@ -20,43 +20,43 @@ public class ImportRis implements Import {
 
 
     @Override
-    public ArrayList<Reference> readFile(String path) throws IOException, TokenMgrException, ParseException {
-        ArrayList<Reference> listReference = new ArrayList<>();
+    public ArrayList<BaseR> readFile(String path) throws IOException, TokenMgrException, ParseException {
+        ArrayList<BaseR> listBaseR = new ArrayList<>();
 
         Reader reader = new FileReader(path);
         ArrayList<BaseReference> list = manager.importReferences(reader);
 
         for (BaseReference entry : list) {
-            listReference.add(createReference(entry));
+            listBaseR.add(createReference(entry));
         }
-        return listReference;
+        return listBaseR;
     }
 
-    private Reference createReference(BaseReference entry) {
+    private BaseR createReference(BaseReference entry) {
 
-        Reference reference;
+        BaseR baseR;
         if (entry instanceof JournalArticle) {
-            reference = readArticleReference((JournalArticle) entry);
+            baseR = readArticleReference((JournalArticle) entry);
         } else {
             if (entry instanceof Book) {
-                reference = readBookReference((Book) entry);
+                baseR = readBookReference((Book) entry);
             } else {
                 if (entry instanceof BookSection) {
-                    reference = readBookSectionReference((BookSection) entry);
+                    baseR = readBookSectionReference((BookSection) entry);
                 } else {
                     if (entry instanceof Thesis) {
-                        reference = readThesisReference((Thesis) entry);
+                        baseR = readThesisReference((Thesis) entry);
                     } else {
                         if (entry instanceof ConferenceProceedings) {
-                            reference = readConferenceProceedingsReference((ConferenceProceedings) entry);
+                            baseR = readConferenceProceedingsReference((ConferenceProceedings) entry);
                         }else {
                             if (entry instanceof ConferencePaper) {
-                                reference = readConferencePaperReference((ConferencePaper) entry);
+                                baseR = readConferencePaperReference((ConferencePaper) entry);
                             }else {
                                 if (entry instanceof WebPage) {
-                                    reference = readWebPageReference((WebPage) entry);
+                                    baseR = readWebPageReference((WebPage) entry);
                                 } else {
-                                    reference = null;
+                                    baseR = null;
                                 }
                             }
                         }
@@ -64,11 +64,11 @@ public class ImportRis implements Import {
                 }
             }
         }
-        return reference;
+        return baseR;
     }
 
-    private void commonField(BaseReference entry, Reference reference) {
-        reference.setNote(entry.getNotes());
+    private void commonField(BaseReference entry, BaseR baseR) {
+        baseR.setNote(entry.getNotes());
     }
 
     private String authorOrEditorField(ArrayList<String> people) {
@@ -79,9 +79,9 @@ public class ImportRis implements Import {
         return authors;
     }
 
-    private Reference readArticleReference(JournalArticle entry) {
+    private BaseR readArticleReference(JournalArticle entry) {
 
-        ArticleReference article = new ArticleReference();
+        ArticleR article = new ArticleR();
 
         commonField(entry, article);
         article.setAuthor(authorOrEditorField(entry.getAuthorList()));
@@ -96,9 +96,9 @@ public class ImportRis implements Import {
         return article;
     }
 
-    private Reference readBookReference(Book entry) {
+    private BaseR readBookReference(Book entry) {
 
-        BookReference book = new BookReference();
+        BookR book = new BookR();
 
         commonField(entry, book);
         book.setAuthor(authorOrEditorField(entry.getAuthorList()));
@@ -116,9 +116,9 @@ public class ImportRis implements Import {
         return book;
     }
 
-    private Reference readBookSectionReference(BookSection entry) {
+    private BaseR readBookSectionReference(BookSection entry) {
 
-        BookSectionReference section = new BookSectionReference();
+        BookSectionR section = new BookSectionR();
 
         commonField(entry, section);
         section.setChapter(entry.getChapter());
@@ -138,9 +138,9 @@ public class ImportRis implements Import {
         return section;
     }
 
-    private Reference readThesisReference(Thesis entry) {
+    private BaseR readThesisReference(Thesis entry) {
 
-        ThesisReference thesis = new ThesisReference();
+        ThesisR thesis = new ThesisR();
 
         commonField(entry, thesis);
         thesis.setAuthor(authorOrEditorField(entry.getAuthorList()));
@@ -159,9 +159,9 @@ public class ImportRis implements Import {
         return thesis;
     }
 
-    private Reference readConferenceProceedingsReference(ConferenceProceedings entry) {
+    private BaseR readConferenceProceedingsReference(ConferenceProceedings entry) {
 
-        ConferenceProceedingsReference proceedings = new ConferenceProceedingsReference();
+        ConferenceProceedingsR proceedings = new ConferenceProceedingsR();
         commonField(entry, proceedings);
         proceedings.setTitle(entry.getTitle());
         proceedings.setYear(entry.getYear());
@@ -174,9 +174,9 @@ public class ImportRis implements Import {
 
         return proceedings;
     }
-    private Reference readConferencePaperReference(ConferencePaper entry) {
+    private BaseR readConferencePaperReference(ConferencePaper entry) {
 
-        ConferencePaperReference paper = new ConferencePaperReference();
+        ConferencePaperR paper = new ConferencePaperR();
         commonField(entry, paper);
         paper.setAuthor(authorOrEditorField(entry.getAuthorList()));
         paper.setTitle(entry.getTitle());
@@ -190,9 +190,9 @@ public class ImportRis implements Import {
         return paper;
     }
 
-    private Reference readWebPageReference(WebPage entry) {
+    private BaseR readWebPageReference(WebPage entry) {
 
-        WebPageReference webPage = new WebPageReference();
+        WebPageR webPage = new WebPageR();
         commonField(entry, webPage);
         webPage.setAuthor(authorOrEditorField(entry.getAuthorList()));
         webPage.setTitle(entry.getTitle());

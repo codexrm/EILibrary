@@ -5,5 +5,5 @@ import java.util.ArrayList;
 
 public interface Export {
 
-    void writeValue(ArrayList<Reference> referenceList, String path) throws IOException;
+    void writeValue(ArrayList<BaseR> baseRList, String path) throws IOException;
 }

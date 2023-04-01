@@ -10,11 +10,11 @@ import java.util.Collections;
 public class ExportRis implements Export {
 
     @Override
-    public void writeValue(ArrayList<Reference> referenceList, String path) throws IOException {
+    public void writeValue(ArrayList<BaseR> baseRList, String path) throws IOException {
 
         RisManager manager = new RisManager();
-        for (Reference reference : referenceList) {
-            BaseReference entry = identifyType(reference);
+        for (BaseR baseR : baseRList) {
+            BaseReference entry = identifyType(baseR);
             if (entry != null) {
                 manager.addReference(entry);
             }
@@ -22,36 +22,36 @@ public class ExportRis implements Export {
         manager.exportListReference(path);
     }
 
-    private BaseReference identifyType(Reference reference) {
+    private BaseReference identifyType(BaseR baseR) {
 
         BaseReference entry;
 
-        if (reference instanceof ArticleReference) {
-            entry = createJournal((ArticleReference) reference);
+        if (baseR instanceof ArticleR) {
+            entry = createJournal((ArticleR) baseR);
 
         } else {
-            if (reference instanceof BookSectionReference) {
-                entry = createBookSection((BookSectionReference) reference);
+            if (baseR instanceof BookSectionR) {
+                entry = createBookSection((BookSectionR) baseR);
 
             } else {
-                if (reference instanceof BookReference) {
-                    entry = createBook((BookReference) reference);
+                if (baseR instanceof BookR) {
+                    entry = createBook((BookR) baseR);
 
                 } else {
-                    if (reference instanceof ThesisReference) {
-                        entry = createThesis((ThesisReference) reference);
+                    if (baseR instanceof ThesisR) {
+                        entry = createThesis((ThesisR) baseR);
 
                     } else {
-                        if (reference instanceof ConferenceProceedingsReference) {
-                            entry = createConferenceProceedings((ConferenceProceedingsReference) reference);
+                        if (baseR instanceof ConferenceProceedingsR) {
+                            entry = createConferenceProceedings((ConferenceProceedingsR) baseR);
 
                         } else {
-                            if (reference instanceof ConferencePaperReference) {
-                                entry = createConferencePaper((ConferencePaperReference) reference);
+                            if (baseR instanceof ConferencePaperR) {
+                                entry = createConferencePaper((ConferencePaperR) baseR);
 
                             } else {
-                                if (reference instanceof WebPageReference) {
-                                    entry = createWebPage((WebPageReference) reference);
+                                if (baseR instanceof WebPageR) {
+                                    entry = createWebPage((WebPageR) baseR);
 
                                 } else {
                                     entry = null;
@@ -71,11 +71,11 @@ public class ExportRis implements Export {
         Collections.addAll(listPeopleReference, authors);
     }
 
-    private void commonField(Reference reference, BaseReference entry) {
-        entry.setNotes(reference.getNote());
+    private void commonField(BaseR baseR, BaseReference entry) {
+        entry.setNotes(baseR.getNote());
     }
 
-    private JournalArticle createJournal(ArticleReference reference) {
+    private JournalArticle createJournal(ArticleR reference) {
 
         JournalArticle journalArticle = new JournalArticle();
         commonField(reference, journalArticle);
@@ -91,7 +91,7 @@ public class ExportRis implements Export {
         return journalArticle;
     }
 
-    private Book createBook(BookReference reference) {
+    private Book createBook(BookR reference) {
 
         Book book = new Book();
         commonField(reference, book);
@@ -110,7 +110,7 @@ public class ExportRis implements Export {
         return book;
     }
 
-    private BookSection createBookSection(BookSectionReference reference) {
+    private BookSection createBookSection(BookSectionR reference) {
 
         BookSection section = new BookSection();
         commonField(reference, section);
@@ -132,7 +132,7 @@ public class ExportRis implements Export {
         return section;
     }
 
-    private Thesis createThesis(ThesisReference reference) {
+    private Thesis createThesis(ThesisR reference) {
 
         Thesis thesis = new Thesis();
         commonField(reference, thesis);
@@ -150,7 +150,7 @@ public class ExportRis implements Export {
         return thesis;
     }
 
-    private ConferenceProceedings createConferenceProceedings(ConferenceProceedingsReference reference) {
+    private ConferenceProceedings createConferenceProceedings(ConferenceProceedingsR reference) {
 
         ConferenceProceedings proceedings = new ConferenceProceedings();
         commonField(reference, proceedings);
@@ -166,7 +166,7 @@ public class ExportRis implements Export {
         return proceedings;
     }
 
-    private ConferencePaper createConferencePaper(ConferencePaperReference reference) {
+    private ConferencePaper createConferencePaper(ConferencePaperR reference) {
 
         ConferencePaper paper = new ConferencePaper();
         commonField(reference, paper);
@@ -182,7 +182,7 @@ public class ExportRis implements Export {
         return paper;
     }
 
-    private WebPage createWebPage(WebPageReference reference) {
+    private WebPage createWebPage(WebPageR reference) {
 
         WebPage webPage = new WebPage();
         commonField(reference, webPage);

@@ -13,48 +13,48 @@ public class ExportBibTeX implements Export {
     private final String ad = "  address = {";
 
     @Override
-    public void writeValue(ArrayList<Reference> referenceList, String path) throws IOException {
+    public void writeValue(ArrayList<BaseR> baseRList, String path) throws IOException {
 
-        for (Reference reference : referenceList) {
-            identifyType(reference, path);
+        for (BaseR baseR : baseRList) {
+            identifyType(baseR, path);
         }
     }
 
-    private void identifyType(Reference reference, String path) throws IOException {
+    private void identifyType(BaseR baseR, String path) throws IOException {
 
         FileWriter writer = new FileWriter(path, true);
         BufferedWriter bufferedWriter = new BufferedWriter(writer);
 
-        if (reference instanceof ArticleReference) {
-            writeArticleReference((ArticleReference) reference, bufferedWriter);
+        if (baseR instanceof ArticleR) {
+            writeArticleReference((ArticleR) baseR, bufferedWriter);
 
         } else {
-            if (reference instanceof BookSectionReference) {
-                writeBookSectionReference((BookSectionReference) reference, bufferedWriter);
+            if (baseR instanceof BookSectionR) {
+                writeBookSectionReference((BookSectionR) baseR, bufferedWriter);
 
             } else {
-                if (reference instanceof BookReference) {
-                    writeBookReference((BookReference) reference, bufferedWriter);
+                if (baseR instanceof BookR) {
+                    writeBookReference((BookR) baseR, bufferedWriter);
 
                 } else {
-                    if (reference instanceof ThesisReference) {
-                        writeThesisReference((ThesisReference) reference, bufferedWriter);
+                    if (baseR instanceof ThesisR) {
+                        writeThesisReference((ThesisR) baseR, bufferedWriter);
 
                     } else {
-                        if (reference instanceof BookLetReference) {
-                            writeBookLetReference((BookLetReference) reference, bufferedWriter);
+                        if (baseR instanceof BookLetR) {
+                            writeBookLetReference((BookLetR) baseR, bufferedWriter);
 
                         } else {
-                            if (reference instanceof ConferenceProceedingsReference) {
-                                writeConferenceProceedingsReference((ConferenceProceedingsReference) reference,
+                            if (baseR instanceof ConferenceProceedingsR) {
+                                writeConferenceProceedingsReference((ConferenceProceedingsR) baseR,
                                         bufferedWriter);
                             } else {
-                                if (reference instanceof ConferencePaperReference) {
-                                    writeConferencePaperReference((ConferencePaperReference) reference,
+                                if (baseR instanceof ConferencePaperR) {
+                                    writeConferencePaperReference((ConferencePaperR) baseR,
                                             bufferedWriter);
                                 } else {
-                                    if (reference instanceof WebPageReference) {
-                                        writeWebPageReference((WebPageReference) reference, bufferedWriter);
+                                    if (baseR instanceof WebPageR) {
+                                        writeWebPageReference((WebPageR) baseR, bufferedWriter);
                                     }
                                 }
                             }
@@ -107,24 +107,24 @@ public class ExportBibTeX implements Export {
 
 
 
-    private void commonField(Reference reference, BufferedWriter bufferedWriter) throws IOException {
+    private void commonField(BaseR baseR, BufferedWriter bufferedWriter) throws IOException {
 
          bufferedWriter.newLine();
 
-        if (reference.getTitle() != null) {
-            bufferedWriter.write("  title = {" + reference.getTitle() + "},");
+        if (baseR.getTitle() != null) {
+            bufferedWriter.write("  title = {" + baseR.getTitle() + "},");
             bufferedWriter.newLine();
         }
-        if (reference.getMonth() != null) {
-            bufferedWriter.write("  month = " + reference.getMonth() + ",");
+        if (baseR.getMonth() != null) {
+            bufferedWriter.write("  month = " + baseR.getMonth() + ",");
             bufferedWriter.newLine();
         }
-        if(reference.getYear() != null){
-            bufferedWriter.write("  year = {" + reference.getYear() + "},");
+        if(baseR.getYear() != null){
+            bufferedWriter.write("  year = {" + baseR.getYear() + "},");
             bufferedWriter.newLine();
         }
-        if (reference.getNote() != null) {
-            bufferedWriter.write("  note = {" + reference.getNote() + "},");
+        if (baseR.getNote() != null) {
+            bufferedWriter.write("  note = {" + baseR.getNote() + "},");
             bufferedWriter.newLine();
         }
     }
@@ -139,7 +139,7 @@ public class ExportBibTeX implements Export {
         bufferedWriter.close();
     }
 
-    private void writeArticleReference(ArticleReference reference, BufferedWriter bufferedWriter)
+    private void writeArticleReference(ArticleR reference, BufferedWriter bufferedWriter)
             throws IOException {
 
         bufferedWriter.write("@article{" + reference.getId() + ",");
@@ -171,7 +171,7 @@ public class ExportBibTeX implements Export {
         closeReference(bufferedWriter);
     }
 
-    private void writeBooks(BookReference reference, BufferedWriter bufferedWriter) throws IOException {
+    private void writeBooks(BookR reference, BufferedWriter bufferedWriter) throws IOException {
 
         commonField(reference, bufferedWriter);
 
@@ -210,14 +210,14 @@ public class ExportBibTeX implements Export {
         }
     }
 
-    private void writeBookReference(BookReference reference, BufferedWriter bufferedWriter) throws IOException {
+    private void writeBookReference(BookR reference, BufferedWriter bufferedWriter) throws IOException {
 
         bufferedWriter.write("@book{" + reference.getId() + ",");
         writeBooks(reference, bufferedWriter);
         closeReference(bufferedWriter);
     }
 
-    private void writeBookSectionReference(BookSectionReference reference,
+    private void writeBookSectionReference(BookSectionR reference,
                                            BufferedWriter bufferedWriter) throws IOException {
 
         bufferedWriter.write("@inbook{" + reference.getId() + ",");
@@ -239,7 +239,7 @@ public class ExportBibTeX implements Export {
         closeReference(bufferedWriter);
     }
 
-    private void writeBookLetReference(BookLetReference reference, BufferedWriter bufferedWriter) throws IOException {
+    private void writeBookLetReference(BookLetR reference, BufferedWriter bufferedWriter) throws IOException {
 
         bufferedWriter.write("@booklet{" + reference.getId() + ",");
         commonField(reference, bufferedWriter);
@@ -257,7 +257,7 @@ public class ExportBibTeX implements Export {
         closeReference(bufferedWriter);
     }
 
-    private void writeThesisReference(ThesisReference reference, BufferedWriter bufferedWriter) throws IOException {
+    private void writeThesisReference(ThesisR reference, BufferedWriter bufferedWriter) throws IOException {
 
         if (reference.getType().equals(ThesisType.MASTERS)) {
             bufferedWriter.write("@mastersthesis{" + reference.getId() + ",");
@@ -283,7 +283,7 @@ public class ExportBibTeX implements Export {
         closeReference(bufferedWriter);
     }
 
-    private void writeConferenceProceedingsReference(ConferenceProceedingsReference reference,
+    private void writeConferenceProceedingsReference(ConferenceProceedingsR reference,
                                                      BufferedWriter bufferedWriter) throws IOException {
 
         bufferedWriter.write("@proceedings{" + reference.getId() + ",");
@@ -322,7 +322,7 @@ public class ExportBibTeX implements Export {
         closeReference(bufferedWriter);
     }
 
-    private void writeConferencePaperReference(ConferencePaperReference reference,
+    private void writeConferencePaperReference(ConferencePaperR reference,
                                                BufferedWriter bufferedWriter) throws IOException {
 
         bufferedWriter.write("@InProceedings{" + reference.getId() + ",");
@@ -368,7 +368,7 @@ public class ExportBibTeX implements Export {
         closeReference(bufferedWriter);
     }
 
-    private void writeWebPageReference(WebPageReference reference,
+    private void writeWebPageReference(WebPageR reference,
                                        BufferedWriter bufferedWriter) throws IOException {
 
         bufferedWriter.write("@misc{" + reference.getId() + ",");

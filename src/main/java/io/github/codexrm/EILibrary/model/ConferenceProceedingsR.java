@@ -2,7 +2,7 @@ package io.github.codexrm.EILibrary.model;
 
 import io.github.codexrm.EILibrary.enums.Months;
 
-public class ConferenceProceedingsReference extends Reference {
+public class ConferenceProceedingsR extends BaseR {
 
     private String editor;
     private String volume;
@@ -14,10 +14,10 @@ public class ConferenceProceedingsReference extends Reference {
     private String isbn;
     private final Validations validations = new Validations();
 
-    public ConferenceProceedingsReference() {
+    public ConferenceProceedingsR() {
     }
 
-    public ConferenceProceedingsReference(String title, String year, Months month, String note, Integer id, String editor, String volume, String number, String series, String address, String publisher, String organization, String isbn) {
+    public ConferenceProceedingsR(String title, String year, Months month, String note, Integer id, String editor, String volume, String number, String series, String address, String publisher, String organization, String isbn) {
         super(title, year, month, note, id);
 
         if(validations.validateAuthorOrEditor(editor))

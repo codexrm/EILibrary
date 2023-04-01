@@ -8,5 +8,5 @@ import java.util.ArrayList;
 
 public interface Import {
 
-    ArrayList<Reference> readFile(String path) throws IOException, TokenMgrException, ParseException;
+    ArrayList<BaseR> readFile(String path) throws IOException, TokenMgrException, ParseException;
 }

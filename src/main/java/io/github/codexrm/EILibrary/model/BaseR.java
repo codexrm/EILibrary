@@ -2,7 +2,7 @@ package io.github.codexrm.EILibrary.model;
 
 import io.github.codexrm.EILibrary.enums.Months;
 
-public class Reference {
+public class BaseR {
 
     protected String title;
     protected String year;
@@ -11,9 +11,9 @@ public class Reference {
     protected Integer id;
     private final Validations validations = new Validations();
 
-    public Reference() { }
+    public BaseR() { }
 
-    public Reference(String title, String year, Months month, String note, Integer id) {
+    public BaseR(String title, String year, Months month, String note, Integer id) {
         this.title = title;
         this.year =  validations.validateYear(year);
         this.month = month;

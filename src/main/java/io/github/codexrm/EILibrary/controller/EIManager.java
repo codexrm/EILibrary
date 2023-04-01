@@ -28,13 +28,13 @@ public class EIManager {
     public void setImportFactory(ImportFactory importFactory) { this.importFactory = importFactory; }
 
 
-    public void exportReferenceList(Path path, ArrayList<Reference> referenceList, Format format) throws IOException {
+    public void exportReferenceList(Path path, ArrayList<BaseR> baseRList, Format format) throws IOException {
 
         Export export = exportFactory.getExport(format);
-        export.writeValue(referenceList, path.toString());
+        export.writeValue(baseRList, path.toString());
     }
 
-    public ArrayList<Reference> importReferences(String path, Format format) throws IOException, TokenMgrException, ParseException {
+    public ArrayList<BaseR> importReferences(String path, Format format) throws IOException, TokenMgrException, ParseException {
 
         Import importer = importFactory.getImport(format);
         return importer.readFile(path);

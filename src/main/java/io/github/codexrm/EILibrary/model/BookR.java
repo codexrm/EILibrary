@@ -2,7 +2,7 @@ package io.github.codexrm.EILibrary.model;
 
 import io.github.codexrm.EILibrary.enums.Months;
 
-public class BookReference extends Reference {
+public class BookR extends BaseR {
 
     protected String author;
     protected String editor;
@@ -15,9 +15,9 @@ public class BookReference extends Reference {
     protected String isbn;
     private final Validations validations = new Validations();
 
-    public BookReference() { }
+    public BookR() { }
 
-    public BookReference(String title, String year, Months month, String note, Integer id, String author, String editor, String publisher, String volume, String number, String series, String address, String edition, String isbn) {
+    public BookR(String title, String year, Months month, String note, Integer id, String author, String editor, String publisher, String volume, String number, String series, String address, String edition, String isbn) {
         super(title, year, month, note, id);
 
         if(validations.validateAuthorOrEditor(author))

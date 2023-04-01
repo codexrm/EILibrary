@@ -3,18 +3,18 @@ package io.github.codexrm.EILibrary.model;
 import io.github.codexrm.EILibrary.enums.BookSectionType;
 import io.github.codexrm.EILibrary.enums.Months;
 
-public class BookSectionReference extends BookReference {
+public class BookSectionR extends BookR {
 
     private String chapter;
     private String pages;
     private BookSectionType type;
     private final Validations validations = new Validations();
 
-    public BookSectionReference() {
+    public BookSectionR() {
     }
 
-    public BookSectionReference(String title, String year, Months month, String note, Integer id, String author, String editor, String publisher, String volume, String number, String series, String address, String edition, String isbn, String chapter,
-                                String pages, BookSectionType type) {
+    public BookSectionR(String title, String year, Months month, String note, Integer id, String author, String editor, String publisher, String volume, String number, String series, String address, String edition, String isbn, String chapter,
+                        String pages, BookSectionType type) {
 
         super(title, year, month, note, id, author, editor, publisher, volume, number, series, address, edition, isbn);
 

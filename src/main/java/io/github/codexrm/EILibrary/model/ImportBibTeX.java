@@ -12,38 +12,38 @@ import java.util.Map;
 
 public class ImportBibTeX implements Import {
     @Override
-    public ArrayList<Reference> readFile(String path) throws IOException, TokenMgrException, ParseException {
+    public ArrayList<BaseR> readFile(String path) throws IOException, TokenMgrException, ParseException {
         Reader reader = new FileReader(path);
         BibTeXParser bibtexParser = new BibTeXParser();
         BibTeXDatabase database = bibtexParser.parseFully(reader);
         Map<Key, BibTeXEntry> entryMap = database.getEntries();
         Collection<BibTeXEntry> entries = entryMap.values();
-        ArrayList<Reference> listReference = new ArrayList<>();
+        ArrayList<BaseR> listBaseR = new ArrayList<>();
 
-        Reference reference = new Reference();
+        BaseR baseR = new BaseR();
         for (BibTeXEntry entry : entries) {
 
             if (entry.getType().toString().equalsIgnoreCase("article")) {
-                reference = createArticleReference(entry);
+                baseR = createArticleReference(entry);
             } else {
                 if (entry.getType().toString().equalsIgnoreCase("book")) {
-                    reference = createBookReference(entry);
+                    baseR = createBookReference(entry);
                 } else {
                     if (entry.getType().toString().equalsIgnoreCase("inbook")) {
-                        reference = createBookSectionReference(entry);
+                        baseR = createBookSectionReference(entry);
                     } else {
                         if (entry.getType().toString().equalsIgnoreCase("booklet")) {
-                            reference = createBookLetReference(entry);
+                            baseR = createBookLetReference(entry);
                         } else {
                             if (entry.getType().toString().equalsIgnoreCase("mastersthesis")
                                     || entry.getType().toString().equalsIgnoreCase("phdthesis")) {
-                                reference = createThesisReference(entry);
+                                baseR = createThesisReference(entry);
                             } else {
                                 if (entry.getType().toString().equalsIgnoreCase("proceedings")) {
-                                    reference = createConferenceProceedingsReference(entry);
+                                    baseR = createConferenceProceedingsReference(entry);
                                 }else{
                                     if (entry.getType().toString().equalsIgnoreCase("conference") || entry.getType().toString().equalsIgnoreCase("InProceedings")) {
-                                        reference = createConferencePaperReference(entry);
+                                        baseR = createConferencePaperReference(entry);
                                     }
                                 }
                             }
@@ -51,12 +51,12 @@ public class ImportBibTeX implements Import {
                     }
                 }
             }
-            if (reference != null) {
-                listReference.add(reference);
+            if (baseR != null) {
+                listBaseR.add(baseR);
             }
-            reference = null;
+            baseR = null;
         }
-        return listReference;
+        return listBaseR;
     }
 
     private String createAuthorOrEditorField(String content) {
@@ -70,26 +70,26 @@ public class ImportBibTeX implements Import {
         return person.toString();
     }
 
-    private void commonField(BibTeXEntry entry, Reference reference) {
+    private void commonField(BibTeXEntry entry, BaseR baseR) {
 
         Value value = entry.getField(BibTeXEntry.KEY_TITLE);
         if (value != null) {
-            reference.setTitle(value.toUserString());
+            baseR.setTitle(value.toUserString());
         }
 
         value = entry.getField(BibTeXEntry.KEY_YEAR);
         if (value != null ) {
-            reference.setYear(value.toUserString());
+            baseR.setYear(value.toUserString());
         }
 
         value = entry.getField(BibTeXEntry.KEY_MONTH);
         if (value != null) {
-            reference.setMonth(getMonth(value.toUserString()));
+            baseR.setMonth(getMonth(value.toUserString()));
         }
 
         value = entry.getField(BibTeXEntry.KEY_NOTE);
         if (value != null) {
-            reference.setNote(value.toUserString());
+            baseR.setNote(value.toUserString());
         }
     }
 
@@ -176,7 +176,7 @@ public class ImportBibTeX implements Import {
             return false;
         }
     }
-    private void setBookSectionType(final BibTeXEntry entry, BookSectionReference bookSection) {
+    private void setBookSectionType(final BibTeXEntry entry, BookSectionR bookSection) {
 
         Value value = entry.getField(BibTeXEntry.KEY_TYPE);
         switch (value.toString()) {
@@ -199,8 +199,8 @@ public class ImportBibTeX implements Import {
         }
     }
 
-    private Reference createArticleReference(BibTeXEntry entry) {
-        ArticleReference article = new ArticleReference();
+    private BaseR createArticleReference(BibTeXEntry entry) {
+        ArticleR article = new ArticleR();
         commonField(entry, article);
         Value value = entry.getField(BibTeXEntry.KEY_AUTHOR);
         if (value != null) {
@@ -226,13 +226,13 @@ public class ImportBibTeX implements Import {
         return article;
     }
 
-    private Reference createBookReference(BibTeXEntry entry) {
-        BookReference book = new BookReference();
+    private BaseR createBookReference(BibTeXEntry entry) {
+        BookR book = new BookR();
         createBook(entry, book);
         return book;
     }
 
-    private void createBook(BibTeXEntry entry, BookReference book) {
+    private void createBook(BibTeXEntry entry, BookR book) {
         commonField(entry, book);
         Value value = entry.getField(BibTeXEntry.KEY_AUTHOR);
         if (value != null) {
@@ -268,8 +268,8 @@ public class ImportBibTeX implements Import {
         }
     }
 
-    private Reference createBookSectionReference(BibTeXEntry entry) {
-        BookSectionReference bookSection = new BookSectionReference();
+    private BaseR createBookSectionReference(BibTeXEntry entry) {
+        BookSectionR bookSection = new BookSectionR();
         createBook(entry, bookSection);
         Value value = entry.getField(BibTeXEntry.KEY_CHAPTER);
         if (value != null) {
@@ -284,8 +284,8 @@ public class ImportBibTeX implements Import {
         return bookSection;
     }
 
-    private Reference createBookLetReference(BibTeXEntry entry) {
-        BookLetReference bookLet = new BookLetReference();
+    private BaseR createBookLetReference(BibTeXEntry entry) {
+        BookLetR bookLet = new BookLetR();
         commonField(entry, bookLet);
         Value value = entry.getField(BibTeXEntry.KEY_AUTHOR);
         if (value != null) {
@@ -302,8 +302,8 @@ public class ImportBibTeX implements Import {
         return bookLet;
     }
 
-    private Reference createThesisReference(BibTeXEntry entry) {
-        ThesisReference thesis = new ThesisReference();
+    private BaseR createThesisReference(BibTeXEntry entry) {
+        ThesisR thesis = new ThesisR();
         commonField(entry, thesis);
         Value value = entry.getField(BibTeXEntry.KEY_AUTHOR);
         if (value != null) {
@@ -325,9 +325,9 @@ public class ImportBibTeX implements Import {
         return thesis;
     }
 
-    private Reference createConferenceProceedingsReference(BibTeXEntry entry) {
+    private BaseR createConferenceProceedingsReference(BibTeXEntry entry) {
 
-        ConferenceProceedingsReference proceedings = new ConferenceProceedingsReference();
+        ConferenceProceedingsR proceedings = new ConferenceProceedingsR();
         commonField(entry, proceedings);
         Value value = entry.getField(BibTeXEntry.KEY_EDITOR);
         if (value != null) {
@@ -360,9 +360,9 @@ public class ImportBibTeX implements Import {
         return proceedings;
     }
 
-    private Reference createConferencePaperReference(BibTeXEntry entry) {
+    private BaseR createConferencePaperReference(BibTeXEntry entry) {
 
-        ConferencePaperReference paper = new ConferencePaperReference();
+        ConferencePaperR paper = new ConferencePaperR();
         commonField(entry, paper);
         Value value = entry.getField(BibTeXEntry.KEY_AUTHOR);
         if (value != null) {
