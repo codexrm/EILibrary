@@ -19,9 +19,6 @@ PB  - Prencite Hall
 PY  - 2020--2021
 VL  - 2
 NV  - First
-CY  - New York
-ET  - 2
-SN  - 5510-2031
 T2  - SLNS
 ER  - 
 TY  - CHAP
@@ -33,11 +30,8 @@ PB  - K.madriz
 PY  - 2019
 IS  - 1
 VL  - 5
-CY  - DF,Mexico
-ET  - 2
 T3  - SDN
 SE  - 6
-SN  - 3205-8104
 SP  - 30-50
 ER  - 
 TY  - THES
@@ -47,7 +41,7 @@ TI  - Imagenes
 PB  - Iberoamerica
 PY  - 2023
 M3  - phd
-CY  - Quito,Ecuador
+
 ER  - 
 TY  - CONF
 N1  - ff
@@ -58,7 +52,7 @@ VL  - 5
 PB  - Airt
 NV  - 3
 T3  - LTD
-CY  - Bogota,Colombia
+
 ER  - 
 TY  - CPAPER
 N1  - gg
@@ -68,7 +62,6 @@ TI  - Primefaces
 PY  - 2012
 VL  - 3
 PB  - Informatizacion
-CY  - Barcelona,España
 SP  - 23,24
 ER  - 
 TY  - ELEC

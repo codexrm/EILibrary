@@ -26,7 +26,6 @@ public class BookR extends BaseR {
         if(validations.validateAuthorOrEditor(editor))
         this.editor = editor;
 
-        if(validations.validateJournalOrPublihser(publisher))
         this.publisher = publisher;
 
         if(validations.isNumber(volume))
@@ -35,7 +34,7 @@ public class BookR extends BaseR {
         if(validations.validateNumber(number))
         this.number = number;
 
-        if(validations.validateOrganizationOrSeries(series))
+        if(validations.validateSeries(series))
         this.series = series;
 
         if(validations.validateAddress(address))
@@ -44,7 +43,7 @@ public class BookR extends BaseR {
         if(validations.validateEdition(edition))
         this.edition = edition;
 
-        if(validations.validateIssnOrIsbn(isbn))
+        if(validations.validateIsbn(isbn))
         this.isbn = isbn;
     }
 
@@ -64,10 +63,7 @@ public class BookR extends BaseR {
 
     public String getPublisher() { return publisher; }
 
-    public void setPublisher(String publisher) {
-        if(validations.validateJournalOrPublihser(publisher))
-        this.publisher = publisher;
-    }
+    public void setPublisher(String publisher) { this.publisher = publisher; }
 
     public String getVolume() { return volume; }
 
@@ -86,7 +82,7 @@ public class BookR extends BaseR {
     public String getSeries() { return series; }
 
     public void setSeries(String series) {
-        if(validations.validateOrganizationOrSeries(series))
+        if(validations.validateSeries(series))
         this.series = series;
     }
 
@@ -107,7 +103,7 @@ public class BookR extends BaseR {
     public String getIsbn() { return isbn; }
 
     public void setIsbn(String isbn) {
-        if(validations.validateIssnOrIsbn(isbn))
+        if(validations.validateIsbn(isbn))
         this.isbn = isbn;
     }
 }

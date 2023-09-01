@@ -15,10 +15,12 @@ public class BaseR {
 
     public BaseR(String title, String year, MonthsLibrary month, String note, Integer id) {
         this.title = title;
-        this.year =  validations.validateYear(year);
         this.month = month;
         this.note = note;
         this.id = id;
+
+        if(validations.validateYear(year))
+        this.year = year;
     }
 
     public String getTitle() { return title; }
@@ -27,7 +29,10 @@ public class BaseR {
 
     public String getYear() { return year; }
 
-    public void setYear(String year) { this.year = validations.validateYear(year); }
+    public void setYear(String year) {
+        if(validations.validateYear(year))
+        this.year = year;
+    }
 
     public MonthsLibrary getMonth() { return month; }
 

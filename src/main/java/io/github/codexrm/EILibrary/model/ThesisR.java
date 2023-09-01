@@ -20,7 +20,6 @@ public class ThesisR extends BaseR {
         if(validations.validateAuthorOrEditor(author))
         this.author = author;
 
-        if(validations.validateSchool(school))
         this.school = school;
 
         this.type = type;
@@ -38,10 +37,7 @@ public class ThesisR extends BaseR {
 
     public String getSchool() { return school; }
 
-    public void setSchool(String school) {
-        if(validations.validateSchool(school))
-        this.school = school;
-    }
+    public void setSchool(String school) { this.school = school; }
 
     public ThesisTypeLibrary getType() { return type; }
 

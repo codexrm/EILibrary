@@ -72,6 +72,9 @@ public class ImportRis implements Import {
     }
 
     private String authorOrEditorField(ArrayList<String> people) {
+        if(people.size() == 0)
+            return null;
+
         String authors = people.get(0);
         for (int i = 1; i < people.size(); i++) {
             authors = authors + ";" + people.get(i);

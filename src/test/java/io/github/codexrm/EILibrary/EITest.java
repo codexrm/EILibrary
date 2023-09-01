@@ -23,7 +23,7 @@ class EITest {
         baseRList.add(new ArticleR("Proyecto de medio ambiente", "2008", MonthsLibrary.mar , "aa", 1, "Medina,Juan", "ciencia y educacion", "1","3","10", "3842-4802"));
 
         baseRList.add(new BookR( "Relacion de las carreras", "2020--2021", MonthsLibrary.apr, "bb", 2, "Navarro,Enrique;Marin,Antonio", "Diaz,Mercedes", "Prencite Hall", "2", "First", "SLNS",
-                "New York", "2", "5510-2031"));
+                "New York", "2", null));
 
         baseRList.add(new BookSectionR("La educacion secundaria", "2019", MonthsLibrary.nov, "cc", 3, "Soler,Marco", "Ulloa,Alicia", "K.madriz", "5", "1", "SDN", "DF,Mexico", "2",
                 "3205-8104", "6", "30-50", BookSectionTypeLibrary.DataCD));
@@ -60,7 +60,7 @@ class EITest {
     @Test
     void ImportReference() throws IOException, ParseException {
 
-        final Path pathImportRis = Paths.get("testFile", "importRis.txt");
+        final Path pathImportRis = Paths.get("C:\\Users\\mary\\Desktop", "RIS.txt");
 
         ArrayList<BaseR> listRis = eiManager.importReferences(pathImportRis.toString(), FormatLibrary.RIS);
 

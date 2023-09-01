@@ -21,7 +21,6 @@ public class ArticleR extends BaseR {
         if(validations.validateAuthorOrEditor(author))
         this.author = author;
 
-        if(validations.validateJournalOrPublihser(journal))
         this.journal = journal;
 
         if(validations.isNumber(volume))
@@ -33,7 +32,7 @@ public class ArticleR extends BaseR {
         if(validations.validatePages(pages))
         this.pages = pages;
 
-        if(validations.validateIssnOrIsbn(issn))
+        if(validations.validateIssn(issn))
         this.issn = issn;
     }
 
@@ -46,10 +45,7 @@ public class ArticleR extends BaseR {
 
     public String getJournal() { return journal; }
 
-    public void setJournal(String journal) {
-        if(validations.validateJournalOrPublihser(journal))
-        this.journal = journal;
-    }
+    public void setJournal(String journal) { this.journal = journal; }
 
     public String getVolume() { return volume; }
 
@@ -75,7 +71,7 @@ public class ArticleR extends BaseR {
     public String getIssn() { return issn; }
 
     public void setIssn(String issn) {
-        if(validations.validateIssnOrIsbn(issn))
+        if(validations.validateIssn(issn))
         this.issn = issn;
     }
 }
