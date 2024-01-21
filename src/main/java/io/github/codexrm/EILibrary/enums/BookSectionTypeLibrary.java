@@ -11,7 +11,6 @@ public enum BookSectionTypeLibrary {
     AUDIOCD("Audio CD"),
     DataCD("Data CD");
 
-
     private final String description;
 
     BookSectionTypeLibrary(String description) {

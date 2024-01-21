@@ -5,7 +5,6 @@ import java.util.regex.Pattern;
 
 public class Validations {
 
-
     public boolean validateAuthorOrEditor(String author) {
         if(author == null){
             return false;

@@ -8,8 +8,7 @@ public class WebPageR extends BaseR {
     private String url;
     private final Validations validations = new Validations();
 
-    public WebPageR() {
-    }
+    public WebPageR() {}
 
     public WebPageR(String title, String year, MonthsLibrary month, String note, Integer id, String author, String url) {
         super(title, year, month, note, id);

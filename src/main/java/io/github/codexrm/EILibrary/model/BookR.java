@@ -87,7 +87,6 @@ public class BookR extends BaseR {
     }
 
     public String getAddress() { return address; }
-
     public void setAddress(String address) {
         if(validations.validateAddress(address))
         this.address = address;

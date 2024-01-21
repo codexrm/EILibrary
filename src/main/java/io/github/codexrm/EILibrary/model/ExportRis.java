@@ -128,7 +128,6 @@ public class ExportRis implements Export {
         section.setEdition(reference.getEdition());
         section.setIsbn(reference.getIsbn());
 
-
         return section;
     }
 

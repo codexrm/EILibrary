@@ -27,7 +27,6 @@ public class EIManager {
 
     public void setImportFactory(ImportFactory importFactory) { this.importFactory = importFactory; }
 
-
     public void exportReferenceList(Path path, ArrayList<BaseR> baseRList, FormatLibrary format) throws IOException {
 
         Export export = exportFactory.getExport(format);

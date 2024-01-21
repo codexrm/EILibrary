@@ -11,6 +11,7 @@ import java.util.Collection;
 import java.util.Map;
 
 public class ImportBibTeX implements Import {
+
     @Override
     public ArrayList<BaseR> readFile(String path) throws IOException, TokenMgrException, ParseException {
         Reader reader = new FileReader(path);

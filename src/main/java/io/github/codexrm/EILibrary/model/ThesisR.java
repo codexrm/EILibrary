@@ -11,8 +11,7 @@ public class ThesisR extends BaseR {
     private String address;
     private final Validations validations = new Validations();
 
-    public ThesisR() {
-    }
+    public ThesisR() {}
 
     public ThesisR(String title, String year, MonthsLibrary month, String note, Integer id, String author, String school, ThesisTypeLibrary type, String address) {
         super(title, year, month, note, id);

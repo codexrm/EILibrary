@@ -283,8 +283,7 @@ public class ExportBibTeX implements Export {
         closeReference(bufferedWriter);
     }
 
-    private void writeConferenceProceedingsReference(ConferenceProceedingsR reference,
-                                                     BufferedWriter bufferedWriter) throws IOException {
+    private void writeConferenceProceedingsReference(ConferenceProceedingsR reference, BufferedWriter bufferedWriter) throws IOException {
 
         bufferedWriter.write("@proceedings{" + reference.getId() + ",");
         commonField(reference, bufferedWriter);
@@ -322,8 +321,7 @@ public class ExportBibTeX implements Export {
         closeReference(bufferedWriter);
     }
 
-    private void writeConferencePaperReference(ConferencePaperR reference,
-                                               BufferedWriter bufferedWriter) throws IOException {
+    private void writeConferencePaperReference(ConferencePaperR reference, BufferedWriter bufferedWriter) throws IOException {
 
         bufferedWriter.write("@InProceedings{" + reference.getId() + ",");
         commonField(reference, bufferedWriter);
@@ -368,8 +366,7 @@ public class ExportBibTeX implements Export {
         closeReference(bufferedWriter);
     }
 
-    private void writeWebPageReference(WebPageR reference,
-                                       BufferedWriter bufferedWriter) throws IOException {
+    private void writeWebPageReference(WebPageR reference, BufferedWriter bufferedWriter) throws IOException {
 
         bufferedWriter.write("@misc{" + reference.getId() + ",");
         commonField(reference, bufferedWriter);
